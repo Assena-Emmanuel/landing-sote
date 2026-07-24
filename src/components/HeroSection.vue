@@ -158,7 +158,7 @@ onUnmounted(() => {
    HERO SECTION
 ========================================= */
 .hero {
-  padding: 80px 0 0;
+  padding: 80px 0 30px 0;
   position: relative;
   overflow: hidden;
   background: linear-gradient(180deg, #FCFCFC 0%, rgba(228, 241, 232, 0.4) 100%);
@@ -492,6 +492,7 @@ onUnmounted(() => {
     grid-template-columns: 1fr 1fr;
     gap: 24px;
     padding: 36px 24px;
+    margin: 0 10px;
     border-radius: 22px;
   }
 

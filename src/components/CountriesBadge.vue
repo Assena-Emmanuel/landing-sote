@@ -1,5 +1,4 @@
 <script setup>
-// Remplace cette liste par les vrais pays où Sotê est présent
 const countries = [
   { flag: '🇨🇮', name: "Côte d'Ivoire" },
   { flag: '🇸🇳', name: 'Sénégal' },
@@ -21,123 +20,212 @@ const countries = [
 
 <template>
   <div class="countries-block">
+    
+    <!-- Premium Caption Badge -->
     <div class="countries-caption">
       <span class="dot"></span>
       Déjà présent dans {{ countries.length }} pays d'Afrique
     </div>
-    <div class="countries-row-wrap">
-      <div class="countries-row">
-        <div v-for="c in countries" :key="c.name" class="country-item">
+
+    <!-- Infinite Marquee Container -->
+    <div class="marquee-container">
+      
+      <!-- Track 1 (Visible) -->
+      <div class="marquee-track">
+        <div v-for="c in countries" :key="'a-' + c.name" class="country-item">
           <div class="country-flag">{{ c.flag }}</div>
           <div class="country-name">{{ c.name }}</div>
         </div>
       </div>
-      <div class="fade-edge"></div>
+
+      <!-- Track 2 (Clone for infinite seamless loop) -->
+      <!-- <div class="marquee-track" aria-hidden="true">
+        <div v-for="c in countries" :key="'b-' + c.name" class="country-item">
+          <div class="country-flag">{{ c.flag }}</div>
+          <div class="country-name">{{ c.name }}</div>
+        </div>
+      </div> -->
+
     </div>
   </div>
 </template>
 
 <style scoped>
+/* =========================================
+   BLOCK LAYOUT
+========================================= */
 .countries-block {
   margin-bottom: 26px;
+  padding-top: 20px;
 }
+
+/* =========================================
+   CAPTION (Glass Pill Badge)
+========================================= */
 .countries-caption {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--green-dark);
+  gap: 10px;
+  margin-bottom: 20px;
+  padding: 7px 18px;
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 14px;
+  color: var(--green-dark);
+  background: rgba(228, 241, 232, 0.5);
+  border: 1px solid rgba(45, 90, 61, 0.15);
+  border-radius: 50px;
 }
+
 .dot {
-  width: 7px;
-  height: 7px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: var(--green-primary);
-  box-shadow: 0 0 0 4px var(--green-light);
+  box-shadow: 0 0 0 3px rgba(45, 90, 61, 0.2);
   flex-shrink: 0;
 }
-.countries-row-wrap {
+
+/* =========================================
+   MARQUEE CONTAINER
+========================================= */
+.marquee-container {
   position: relative;
+  width: 100%;
+  overflow: hidden;
+  
+  /* Soft fade on left and right edges */
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
 }
-.countries-row {
+
+/* =========================================
+   MARQUEE TRACK (Animation)
+========================================= */
+.marquee-track {
   display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  overflow-x: auto;
-  padding: 4px 28px 10px 2px;
-  scrollbar-width: thin;
-  scrollbar-color: var(--green-light) transparent;
+  gap: 16px;
+  width: max-content;
+  
+  /* The Infinite Scroll Animation */
+  animation: scroll 40s linear infinite;
 }
-.countries-row::-webkit-scrollbar {
-  height: 5px;
+
+/* Pause on hover for UX */
+.marquee-container:hover .marquee-track {
+  animation-play-state: paused;
 }
-.countries-row::-webkit-scrollbar-track {
-  background: transparent;
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* -50% because there are 2 identical tracks */
 }
-.countries-row::-webkit-scrollbar-thumb {
-  background: var(--green-light);
-  border-radius: 999px;
-}
-.fade-edge {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 10px;
-  width: 34px;
-  /* background: linear-gradient(to right, transparent, white); */
-  pointer-events: none;
-}
+
+/* =========================================
+   COUNTRY CARD (Premium Glass)
+========================================= */
 .country-item {
   flex: 0 0 auto;
-  width: 76px;
+  width: 82px;
   text-align: center;
-  padding: 12px 6px 10px;
-  border-radius: 16px;
-  background: var(--green-light);
-  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+  padding: 16px 8px 14px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 20px rgba(45, 90, 61, 0.08);
+  cursor: default;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, background 0.3s ease;
 }
+
 .country-item:hover {
-  background: white;
-  transform: translateY(-3px);
-  box-shadow: 0 14px 26px -12px rgba(45, 90, 61, 0.35);
+  background: rgba(255, 255, 255, 1);
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 16px 32px rgba(45, 90, 61, 0.18);
 }
+
 .country-flag {
-  width: 34px;
-  height: 34px;
-  margin: 0 auto 7px;
+  width: 38px;
+  height: 38px;
+  margin: 0 auto 8px;
   border-radius: 50%;
   background: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 17px;
-  box-shadow: 0 2px 6px rgba(45, 90, 61, 0.15);
+  font-size: 20px;
+  box-shadow: 0 4px 10px rgba(45, 90, 61, 0.1);
+  border: 1px solid rgba(228, 241, 232, 0.5);
 }
+
 .country-name {
-  font-size: 10.5px;
+  font-size: 11px;
   color: var(--green-dark);
   font-weight: 700;
-  line-height: 1.25;
+  line-height: 1.3;
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
 }
-@media (max-width: 940px) {
+
+/* =========================================
+   TABLET & DESKTOP
+========================================= */
+@media (min-width: 940px) {
   .countries-caption {
-    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* Slightly faster scroll on desktop */
+  .marquee-track {
+    animation-duration: 35s;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+@media (max-width: 600px) {
+  .countries-block {
+    margin-bottom: 0;
+    max-width: 100%;
+  }
+  .countries-caption {
+    font-size: 10px;
+    padding: 5px 14px;
+    margin-bottom: 16px;
+    margin-left: 10px;
+  }
+  .dot {
+    width: 6px;
+    height: 6px;
+  }
+  .country-item {
+    width: 74px;
+    padding: 14px 6px 12px;
+    border-radius: 16px;
+  }
+  .country-flag {
+    width: 34px;
+    height: 34px;
+    font-size: 18px;
+  }
+  .country-name {
+    font-size: 10px;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION (Accessibility)
+========================================= */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+    /* Fallback to standard flex wrap on reduced motion preference */
     width: 100%;
-  }
-  .countries-row {
-    justify-content: flex-start;
-  }
-  .fade-edge {
-    display: none;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }
 </style>
