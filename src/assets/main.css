@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --green-primary: #4a7c59;
+  --green-primary-d: #3d6a4c;
+  --green-light: #e8f5e9;
+  --green-dark: #2d5a3d;
+  --red-alert: #e53935;
+  --bg: #f9f9f6;
+  --white: #ffffff;
+  --ink: #1c2b22;
+  --ink-soft: #6b7a70;
+  --line: rgba(45, 90, 61, 0.09);
+}
