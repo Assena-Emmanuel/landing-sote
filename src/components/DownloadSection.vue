@@ -5,6 +5,8 @@ import loginScreenshot from '../assets/images/singin.jpeg'
 
 <template>
   <section class="section">
+    <!-- Background -->
+    <div class="background" aria-hidden="true"></div>
     <div class="wrap">
       <div>
         <div class="download-cta">
@@ -47,10 +49,30 @@ import loginScreenshot from '../assets/images/singin.jpeg'
 </template>
 
 <style scoped>
+
+.background {
+  position: absolute;
+  inset: -20px;
+
+  z-index: -1;
+
+  background:
+    linear-gradient(
+      rgba(20, 55, 35, 0.68),
+      rgba(20, 55, 35, 0.78)
+    ),
+    url("../assets/images/site_background.jpg")
+    center / cover no-repeat;
+
+  filter: blur(4px);
+
+  transform: scale(1.05);
+}
+
 .wrap {
   max-width: 100%;
   height: 88vh;
-  background: var(--green-dark);
+  /* background: var(--green-dark); */
   margin: 0 auto;
   display: flex;
   justify-content: center;
