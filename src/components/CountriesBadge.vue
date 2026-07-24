@@ -1,21 +1,21 @@
 <script setup>
+import { computed } from 'vue'
+
 const countries = [
   { flag: '🇨🇮', name: "Côte d'Ivoire" },
-  { flag: '🇸🇳', name: 'Sénégal' },
-  { flag: '🇨🇲', name: 'Cameroun' },
-  { flag: '🇧🇫', name: 'Burkina Faso' },
-  { flag: '🇲🇱', name: 'Mali' },
-  { flag: '🇹🇬', name: 'Togo' },
-  { flag: '🇧🇯', name: 'Bénin' },
-  { flag: '🇬🇳', name: 'Guinée' },
-  { flag: '🇳🇪', name: 'Niger' },
-  { flag: '🇬🇭', name: 'Ghana' },
-  { flag: '🇬🇦', name: 'Gabon' },
-  { flag: '🇨🇩', name: 'RD Congo' },
-  { flag: '🇷🇼', name: 'Rwanda' },
-  { flag: '🇰🇪', name: 'Kenya' },
-  { flag: '🇲🇦', name: 'Maroc' },
+  // { flag: '🇸🇳', name: 'Sénégal' },
+  // { flag: '🇨🇲', name: 'Cameroun' },
+  // ... (Décommentez les autres pour tester le mode défilant)
 ]
+
+// Condition : On active le défilement uniquement à partir de 10 pays
+const shouldMarquee = computed(() => countries.length >= 10)
+
+// Si on défile, on duplique la liste pour la boucle infinie seamless.
+// Si on ne défile pas, on garde la liste simple.
+const displayList = computed(() => {
+  return shouldMarquee.value ? [...countries, ...countries] : countries
+})
 </script>
 
 <template>
@@ -27,24 +27,24 @@ const countries = [
       Déjà présent dans {{ countries.length }} pays d'Afrique
     </div>
 
-    <!-- Infinite Marquee Container -->
-    <div class="marquee-container">
+    <!-- Dynamic Container -->
+    <div class="marquee-container" :class="{ 'static-mode': !shouldMarquee }">
       
-      <!-- Track 1 (Visible) -->
-      <div class="marquee-track">
-        <div v-for="c in countries" :key="'a-' + c.name" class="country-item">
+      <div class="marquee-track" :class="{ 'static-track': !shouldMarquee }">
+        <!-- 
+          On utilise displayList. 
+          Si shouldMarquee est true, la liste est doublée pour l'animation translateX(-50%).
+          Si shouldMarquee est false, c'est la liste normale, centrée.
+        -->
+        <div 
+          v-for="(c, index) in displayList" 
+          :key="shouldMarquee ? `m-${index}` : `s-${c.name}`" 
+          class="country-item"
+        >
           <div class="country-flag">{{ c.flag }}</div>
           <div class="country-name">{{ c.name }}</div>
         </div>
       </div>
-
-      <!-- Track 2 (Clone for infinite seamless loop) -->
-      <!-- <div class="marquee-track" aria-hidden="true">
-        <div v-for="c in countries" :key="'b-' + c.name" class="country-item">
-          <div class="country-flag">{{ c.flag }}</div>
-          <div class="country-name">{{ c.name }}</div>
-        </div>
-      </div> -->
 
     </div>
   </div>
@@ -88,20 +88,36 @@ const countries = [
 }
 
 /* =========================================
-   MARQUEE CONTAINER
+   MARQUEE CONTAINER (Dynamic Mode)
 ========================================= */
 .marquee-container {
   position: relative;
   width: 100%;
   overflow: hidden;
   
-  /* Soft fade on left and right edges */
+  /* Soft fade on left and right edges (Activé uniquement en mode défilant) */
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
   mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
 }
 
 /* =========================================
-   MARQUEE TRACK (Animation)
+   STATIC MODE (Si < 10 pays)
+========================================= */
+.marquee-container.static-mode {
+  overflow: visible; /* On laisse le contenu respirer */
+  -webkit-mask-image: none; /* Pas de fondu sur les bords */
+  mask-image: none;
+}
+
+.marquee-track.static-track {
+  width: 100%;
+  justify-content: center; /* On centre le ou les quelques pays */
+  flex-wrap: wrap; /* Permet de les aligner au centre s'il y en a plusieurs (<10) */
+  animation: none; /* Pas de défilement */
+}
+
+/* =========================================
+   MARQUEE TRACK (Animation - Si >= 10 pays)
 ========================================= */
 .marquee-track {
   display: flex;
@@ -113,13 +129,15 @@ const countries = [
 }
 
 /* Pause on hover for UX */
-.marquee-container:hover .marquee-track {
+.marquee-container:not(.static-mode):hover .marquee-track {
   animation-play-state: paused;
 }
 
 @keyframes scroll {
   0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); } /* -50% because there are 2 identical tracks */
+  100% { transform: translateX(-50%); } 
+  /* -50% fonctionne parfaitement car displayList duplique le tableau, 
+     donc la largeur du track est exactement 2x la largeur des pays. */
 }
 
 /* =========================================
@@ -178,7 +196,7 @@ const countries = [
     margin-right: auto;
   }
   /* Slightly faster scroll on desktop */
-  .marquee-track {
+  .marquee-track:not(.static-track) {
     animation-duration: 35s;
   }
 }
@@ -221,11 +239,15 @@ const countries = [
 ========================================= */
 @media (prefers-reduced-motion: reduce) {
   .marquee-track {
-    animation: none;
-    /* Fallback to standard flex wrap on reduced motion preference */
+    animation: none !important;
     width: 100%;
     flex-wrap: wrap;
     justify-content: center;
+  }
+  .marquee-container {
+    overflow: visible;
+    mask-image: none;
+    -webkit-mask-image: none;
   }
 }
 </style>
