@@ -20,6 +20,10 @@ const reasons = [
 
 <template>
   <section class="section">
+
+    <!-- BACKGROUND -->
+    <div class="background"></div>
+
     <div class="wrap">
       <div class="section-head">
         <div class="kicker">Pourquoi Sotê ?</div>
@@ -35,6 +39,7 @@ const reasons = [
         </div>
       </div>
     </div>
+
   </section>
 </template>
 
@@ -42,10 +47,40 @@ const reasons = [
 .wrap {
   max-width: 1180px;
   margin: 0 auto;
-  padding: 0 28px;
+  padding: 0 100px;
+  background: var(--green-light);
+  border-radius: 10px;
+  padding-top: 90px;
+  padding-bottom: 150px;
 }
 .section {
+  position: relative;
+  isolation: isolate;
+
+  min-height: 90vh;
   padding: 100px 0;
+  overflow: hidden;
+  
+}
+
+.background {
+  position: absolute;
+
+  inset: -20px;
+
+  background:
+    linear-gradient(
+      rgba(20, 55, 35, 0.78),
+      rgba(20, 55, 35, 0.88)
+    ),
+    url("../assets/images/bg.jpg")
+    center / cover no-repeat;
+
+  filter: blur(4px);
+
+  transform: scale(1.05);
+
+  z-index: -2;
 }
 .section-head {
   max-width: 640px;
@@ -73,7 +108,9 @@ const reasons = [
 }
 .why-card {
   text-align: center;
-  padding: 10px;
+  padding:20px 10px;
+  border: 1px solid var(--green-primary);
+  border-radius: 10px;
 }
 .why-ic {
   width: 72px;

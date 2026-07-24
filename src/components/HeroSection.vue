@@ -1,33 +1,67 @@
 <script setup>
+import { ref, onMounted, onUnmounted } from 'vue'
 import CountriesBadge from './CountriesBadge.vue'
 import dashboardScreenshot from '../assets/dashboard-screenshot.jpg'
 
 const stats = [
-  { num: 2400, plus: '+', label: 'Utilisateurs actifs' },
-  { num: '980', label: 'Biens gérés' },
-  { num: '1 240', label: 'Annonces' },
-  { num: '4.8/5', label: 'Note moyenne' },
+  { target: 2400, suffix: '+', label: 'Utilisateurs actifs', decimals: 0 },
+  { target: 980, suffix: '', label: 'Biens gérés', decimals: 0 },
+  { target: 1240, suffix: '', label: 'Annonces', decimals: 0 },
+  { target: 4.8, suffix: '/5', label: 'Note moyenne', decimals: 1 },
 ]
 
-// function animateNumber(target, index) {
-//   const duration = 2000
-//   const startTime = performance.now()
+const displayValues = ref(stats.map(() => 0))
+const statsSection = ref(null)
+let hasAnimated = false
+let observer = null
+let rafId = null
 
-//   const update = (currentTime) => {
-//     const elapsed = currentTime - startTime
-//     const progress = Math.min(elapsed / duration, 1)
+function formatNumber(n, decimals) {
+  if (decimals > 0) return n.toFixed(decimals)
+  return Math.round(n).toLocaleString('fr-FR')
+}
 
-//     this.animatedValues[index] = Math.floor(
-//       progress * target
-//     )
+function animateStats() {
+  const duration = 1600
+  const start = performance.now()
 
-//     if (progress < 1) {
-//       requestAnimationFrame(update)
-//     }
-//   }
+  function tick(now) {
+    const elapsed = now - start
+    const progress = Math.min(elapsed / duration, 1)
+    const eased = 1 - Math.pow(1 - progress, 3)
 
-//   requestAnimationFrame(update)
-// }
+    stats.forEach((s, i) => {
+      displayValues.value[i] = s.target * eased
+    })
+
+    if (progress < 1) {
+      rafId = requestAnimationFrame(tick)
+    }
+  }
+
+  rafId = requestAnimationFrame(tick)
+}
+
+onMounted(() => {
+  observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !hasAnimated) {
+          hasAnimated = true
+          animateStats()
+          observer.disconnect()
+        }
+      })
+    },
+    { threshold: 0.35 }
+  )
+  if (statsSection.value) observer.observe(statsSection.value)
+})
+
+onUnmounted(() => {
+  if (observer) observer.disconnect()
+  if (rafId) cancelAnimationFrame(rafId)
+})
 </script>
 
 <template>
@@ -35,7 +69,6 @@ const stats = [
     <div class="hero-blob-bg"></div>
     <div class="wrap hero-inner">
       <div>
-        <CountriesBadge />
         <h1>
           Gérez vos biens, vos locataires<br />
           et vos <span>prestataires</span>,<br />
@@ -94,10 +127,14 @@ const stats = [
     </div>
   </section>
 
-  <section class="stats-strip">
+  <div style="display: flex; justify-content: center; margin: 50px 0;">
+    <CountriesBadge />
+  </div>
+
+  <section class="stats-strip" ref="statsSection">
     <div class="wrap stats-inner">
-      <div v-for="s in stats" :key="s.label">
-        <div class="stat-num">{{ s.num }}</div>
+      <div v-for="(s, i) in stats" :key="s.label">
+        <div class="stat-num">{{ formatNumber(displayValues[i], s.decimals) }}{{ s.suffix }}</div>
         <div class="stat-label">{{ s.label }}</div>
       </div>
     </div>
@@ -297,6 +334,7 @@ const stats = [
   font-weight: 800;
   color: var(--green-dark);
   margin-bottom: 4px;
+  font-variant-numeric: tabular-nums;
 }
 .stat-label {
   font-size: 13px;

@@ -7,6 +7,7 @@ import FeaturesSection from './components/FeaturesSection.vue'
 import WhySection from './components/WhySection.vue'
 import DownloadSection from './components/DownloadSection.vue'
 import AppFooter from './components/AppFooter.vue'
+import TermsSection from './components/TermsSection.vue'
 
 // Page active du "menu qui remplace le scroll".
 // 'accueil' regroupe Hero + Stats + Profils + Fonctionnalités (le coeur de la page).

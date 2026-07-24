@@ -12,7 +12,7 @@ const pages = [
   { id: 'profils', label: 'Profils' },
   { id: 'fonctionnalites', label: 'Fonctionnalités' },
   { id: 'pourquoi', label: 'Pourquoi Sotê' },
-  { id: 'conditions', label: 'Conditions' },
+  { id: 'conditions', label: 'Conditions & Confidentialité' },
 ]
 
 const scrolled = ref(false)

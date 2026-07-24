@@ -34,22 +34,18 @@ const features = [
 ]
 </script>
 
-
 <template>
-
-  <section class="section alt">
+  <section class="section features-section">
+    <!-- Background -->
+    <div class="background" aria-hidden="true"></div>
 
     <div class="wrap">
 
-      <!-- ================================= -->
-      <!-- SECTION HEADER                     -->
-      <!-- ================================= -->
-
-      <div class="section-head">
-
-        <div class="kicker">
+      <!-- Section header -->
+      <header class="section-head">
+        <span class="kicker">
           Fonctionnalités clés
-        </div>
+        </span>
 
         <h2>
           Tout ce qu'il faut pour gérer une location
@@ -59,50 +55,32 @@ const features = [
           Une application complète, pensée pour simplifier
           chaque étape de la gestion immobilière.
         </p>
+      </header>
 
-      </div>
 
-
-      <!-- ================================= -->
-      <!-- FEATURES GRID                     -->
-      <!-- ================================= -->
-
+      <!-- Features grid -->
       <div class="features-grid">
 
-        <div
+        <article
           v-for="feature in features"
           :key="feature.title"
           class="fcard"
         >
 
-          <!-- ================================= -->
-          <!-- CARD INNER                        -->
-          <!-- ================================= -->
-
           <div class="fcard-inner">
 
-
-            <!-- ================================= -->
-            <!-- FRONT                             -->
-            <!-- ================================= -->
+            <!-- ============================= -->
+            <!-- FRONT                           -->
+            <!-- ============================= -->
 
             <div class="fcard-face fcard-front">
 
-              <!-- ICON -->
+              <div class="fic" aria-hidden="true">
 
-              <div class="fic">
-
-                <!-- PAYMENT -->
+                <!-- Payment -->
                 <svg
                   v-if="feature.icon === 'payment'"
-                  width="20"
-                  height="20"
                   viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
                 >
                   <rect
                     x="3"
@@ -111,108 +89,50 @@ const features = [
                     height="16"
                     rx="2"
                   />
-
                   <path d="M3 10h18" />
                 </svg>
 
 
-                <!-- HOME -->
+                <!-- Home -->
                 <svg
                   v-else-if="feature.icon === 'home'"
-                  width="20"
-                  height="20"
                   viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
                 >
                   <path d="M3 10.5L12 3l9 7.5" />
-
                   <path d="M5 9.5V21h14V9.5" />
                 </svg>
 
 
-                <!-- DASHBOARD -->
+                <!-- Dashboard -->
                 <svg
                   v-else-if="feature.icon === 'dashboard'"
-                  width="20"
-                  height="20"
                   viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
                 >
-                  <rect
-                    x="3"
-                    y="3"
-                    width="7"
-                    height="7"
-                    rx="1.5"
-                  />
-
-                  <rect
-                    x="14"
-                    y="3"
-                    width="7"
-                    height="7"
-                    rx="1.5"
-                  />
-
-                  <rect
-                    x="3"
-                    y="14"
-                    width="7"
-                    height="7"
-                    rx="1.5"
-                  />
-
-                  <rect
-                    x="14"
-                    y="14"
-                    width="7"
-                    height="7"
-                    rx="1.5"
-                  />
+                  <rect x="3" y="3" width="7" height="7" rx="1.5" />
+                  <rect x="14" y="3" width="7" height="7" rx="1.5" />
+                  <rect x="3" y="14" width="7" height="7" rx="1.5" />
+                  <rect x="14" y="14" width="7" height="7" rx="1.5" />
                 </svg>
 
 
-                <!-- HISTORY -->
+                <!-- History -->
                 <svg
                   v-else-if="feature.icon === 'history'"
-                  width="20"
-                  height="20"
                   viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
                 >
                   <circle
                     cx="12"
                     cy="12"
                     r="9"
                   />
-
                   <path d="M12 7v5l3 3" />
                 </svg>
 
 
-                <!-- TOOLS -->
+                <!-- Tools -->
                 <svg
                   v-else-if="feature.icon === 'tools'"
-                  width="20"
-                  height="20"
                   viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
                 >
                   <path
                     d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"
@@ -220,22 +140,14 @@ const features = [
                 </svg>
 
 
-                <!-- NOTIFICATION -->
+                <!-- Notification -->
                 <svg
                   v-else
-                  width="20"
-                  height="20"
                   viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
                 >
                   <path
                     d="M18 8a6 6 0 10-12 0c0 7-3 9-3 9h18s-3-2-3-9"
                   />
-
                   <path
                     d="M13.73 21a2 2 0 01-3.46 0"
                   />
@@ -244,14 +156,9 @@ const features = [
               </div>
 
 
-              <!-- TITLE -->
-
               <h3>
                 {{ feature.title }}
               </h3>
-
-
-              <!-- DESCRIPTION -->
 
               <p>
                 {{ feature.desc }}
@@ -260,25 +167,18 @@ const features = [
             </div>
 
 
-            <!-- ================================= -->
-            <!-- BACK                              -->
-            <!-- ================================= -->
+            <!-- ============================= -->
+            <!-- BACK                            -->
+            <!-- ============================= -->
 
             <div class="fcard-face fcard-back">
 
-              <!-- SAME ICON -->
+              <div class="fic" aria-hidden="true">
 
-              <div class="fic">
-
-                <!-- PAYMENT -->
+                <!-- Payment -->
                 <svg
                   v-if="feature.icon === 'payment'"
-                  width="20"
-                  height="20"
                   viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
                 >
                   <rect
                     x="3"
@@ -287,100 +187,50 @@ const features = [
                     height="16"
                     rx="2"
                   />
-
                   <path d="M3 10h18" />
                 </svg>
 
 
-                <!-- HOME -->
+                <!-- Home -->
                 <svg
                   v-else-if="feature.icon === 'home'"
-                  width="20"
-                  height="20"
                   viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
                 >
                   <path d="M3 10.5L12 3l9 7.5" />
-
                   <path d="M5 9.5V21h14V9.5" />
                 </svg>
 
 
-                <!-- DASHBOARD -->
+                <!-- Dashboard -->
                 <svg
                   v-else-if="feature.icon === 'dashboard'"
-                  width="20"
-                  height="20"
                   viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
                 >
-                  <rect
-                    x="3"
-                    y="3"
-                    width="7"
-                    height="7"
-                    rx="1.5"
-                  />
-
-                  <rect
-                    x="14"
-                    y="3"
-                    width="7"
-                    height="7"
-                    rx="1.5"
-                  />
-
-                  <rect
-                    x="3"
-                    y="14"
-                    width="7"
-                    height="7"
-                    rx="1.5"
-                  />
-
-                  <rect
-                    x="14"
-                    y="14"
-                    width="7"
-                    height="7"
-                    rx="1.5"
-                  />
+                  <rect x="3" y="3" width="7" height="7" rx="1.5" />
+                  <rect x="14" y="3" width="7" height="7" rx="1.5" />
+                  <rect x="3" y="14" width="7" height="7" rx="1.5" />
+                  <rect x="14" y="14" width="7" height="7" rx="1.5" />
                 </svg>
 
 
-                <!-- HISTORY -->
+                <!-- History -->
                 <svg
                   v-else-if="feature.icon === 'history'"
-                  width="20"
-                  height="20"
                   viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
                 >
                   <circle
                     cx="12"
                     cy="12"
                     r="9"
                   />
-
                   <path d="M12 7v5l3 3" />
                 </svg>
 
 
-                <!-- TOOLS -->
+                <!-- Tools -->
                 <svg
                   v-else-if="feature.icon === 'tools'"
-                  width="20"
-                  height="20"
                   viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
                 >
                   <path
                     d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"
@@ -388,20 +238,14 @@ const features = [
                 </svg>
 
 
-                <!-- NOTIFICATION -->
+                <!-- Notification -->
                 <svg
                   v-else
-                  width="20"
-                  height="20"
                   viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
                 >
                   <path
                     d="M18 8a6 6 0 10-12 0c0 7-3 9-3 9h18s-3-2-3-9"
                   />
-
                   <path
                     d="M13.73 21a2 2 0 01-3.46 0"
                   />
@@ -410,14 +254,9 @@ const features = [
               </div>
 
 
-              <!-- SAME TITLE -->
-
               <h3>
                 {{ feature.title }}
               </h3>
-
-
-              <!-- SAME DESCRIPTION -->
 
               <p>
                 {{ feature.desc }}
@@ -427,48 +266,60 @@ const features = [
 
           </div>
 
-        </div>
+        </article>
 
       </div>
 
     </div>
-
   </section>
-
 </template>
 
 
 <style scoped>
 
 /* =========================================
-   WRAPPER
-========================================= */
-
-.wrap {
-  max-width: 1180px;
-
-  margin: 0 auto;
-
-  padding: 0 28px;
-}
-
-
-/* =========================================
    SECTION
 ========================================= */
 
-.section {
+.features-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   padding: 100px 0;
 }
 
 
 /* =========================================
-   SECTION BACKGROUND
+   BACKGROUND
 ========================================= */
 
-.section.alt {
+.background {
+  position: absolute;
+  inset: -20px;
+
+  z-index: -1;
+
   background:
-    var(--green-light);
+    linear-gradient(
+      rgba(20, 55, 35, 0.48),
+      rgba(20, 55, 35, 0.68)
+    ),
+    url("../assets/images/site_background.jpg")
+    center / cover no-repeat;
+
+  filter: blur(4px);
+
+  transform: scale(1.05);
+}
+
+
+/* =========================================
+   WRAPPER
+========================================= */
+
+.wrap {
+  width: min(1180px, calc(100% - 56px));
+  margin: 0 auto;
 }
 
 
@@ -478,57 +329,47 @@ const features = [
 
 .section-head {
   max-width: 640px;
-
-  margin:
-    0 auto 56px;
-
+  margin: 0 auto 56px;
   text-align: center;
 }
 
 
 .kicker {
+  display: inline-block;
   margin-bottom: 12px;
 
   font-size: 12.5px;
-
   font-weight: 700;
-
   letter-spacing: 0.08em;
-
   text-transform: uppercase;
 
-  color:
-    var(--green-primary);
+  color: var(--green-light);
 }
 
 
 .section-head h2 {
-  margin:
-    0 0 14px;
+  margin: 0 0 14px;
 
-  font-size: 34px;
-
+  font-size: clamp(28px, 4vw, 34px);
   font-weight: 800;
-
   line-height: 1.25;
 
-  color:
-    var(--green-dark);
+  color: var(--white);
 }
 
 
 .section-head p {
-  font-size: 15.5px;
+  margin: 0;
 
+  font-size: 15.5px;
   line-height: 1.6;
 
-  color:
-    var(--ink-soft);
+  color: var(--green-light);
 }
 
 
 /* =========================================
-   GRID
+   FEATURES GRID
 ========================================= */
 
 .features-grid {
@@ -546,7 +387,7 @@ const features = [
 ========================================= */
 
 .fcard {
-  height: 260px;
+  height: 200px;
 
   perspective: 1000px;
 
@@ -564,8 +405,7 @@ const features = [
   width: 100%;
   height: 100%;
 
-  transform-style:
-    preserve-3d;
+  transform-style: preserve-3d;
 
   transition:
     transform 0.7s
@@ -574,48 +414,39 @@ const features = [
 
 
 /* =========================================
-   FLIP
+   CARD FLIP
 ========================================= */
 
 .fcard:hover .fcard-inner {
-  transform:
-    rotateY(180deg);
+  transform: rotateY(180deg);
 }
 
 
 /* =========================================
-   COMMON FACE
+   CARD FACE
 ========================================= */
 
 .fcard-face {
   position: absolute;
-
   inset: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 
   width: 100%;
   height: 100%;
 
   box-sizing: border-box;
 
-  padding:
-    28px 24px;
+  padding: 28px 24px;
 
-  border-radius:
-    16px;
-
-  display: flex;
-
-  flex-direction: column;
-
-  align-items: flex-start;
+  border-radius: 16px;
 
   text-align: left;
 
-  backface-visibility:
-    hidden;
-
-  -webkit-backface-visibility:
-    hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 
@@ -624,12 +455,9 @@ const features = [
 ========================================= */
 
 .fcard-front {
-  background:
-    var(--white);
+  background: var(--white);
 
-  border:
-    1px solid
-    var(--line);
+  border: 1px solid var(--line);
 
   box-shadow:
     0 4px 18px
@@ -642,18 +470,13 @@ const features = [
 ========================================= */
 
 .fcard-back {
-  background:
-    var(--green-dark);
+  background: var(--green-dark);
 
-  border:
-    1px solid
-    var(--green-dark);
+  border: 1px solid var(--green-dark);
 
-  color:
-    var(--white);
+  color: var(--white);
 
-  transform:
-    rotateY(180deg);
+  transform: rotateY(180deg);
 }
 
 
@@ -662,28 +485,37 @@ const features = [
 ========================================= */
 
 .fic {
-  width: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
+  width: 46px;
   height: 46px;
 
   flex-shrink: 0;
 
   margin-bottom: 18px;
 
-  border-radius:
-    13px;
+  border-radius: 13px;
 
-  background:
-    var(--green-light);
+  background: var(--green-light);
 
-  color:
-    var(--green-primary);
+  color: var(--green-primary);
+}
 
-  display: flex;
 
-  align-items: center;
+.fic svg {
+  width: 20px;
+  height: 20px;
 
-  justify-content: center;
+  fill: none;
+
+  stroke: currentColor;
+
+  stroke-width: 2;
+
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 
@@ -692,28 +524,18 @@ const features = [
 ========================================= */
 
 .fcard h3 {
-  margin:
-    0 0 8px;
+  margin: 0 0 8px;
 
-  font-size:
-    16.5px;
+  font-size: 16.5px;
+  font-weight: 700;
+  line-height: 1.4;
 
-  font-weight:
-    700;
-
-  line-height:
-    1.4;
-
-  color:
-    var(--ink);
+  color: var(--ink);
 }
 
 
-/* BACK TITLE */
-
 .fcard-back h3 {
-  color:
-    var(--white);
+  color: var(--white);
 }
 
 
@@ -722,25 +544,17 @@ const features = [
 ========================================= */
 
 .fcard p {
-  margin:
-    0;
+  margin: 0;
 
-  font-size:
-    13.5px;
+  font-size: 13.5px;
+  line-height: 1.6;
 
-  line-height:
-    1.6;
-
-  color:
-    var(--ink-soft);
+  color: var(--ink-soft);
 }
 
 
-/* BACK DESCRIPTION */
-
 .fcard-back p {
-  color:
-    var(--green-100);
+  color: var(--green-100);
 }
 
 
@@ -764,32 +578,39 @@ const features = [
 
 @media (max-width: 600px) {
 
-  .section {
-    padding:
-      70px 0;
+  .features-section {
+    padding: 70px 0;
   }
+
 
   .wrap {
-    padding:
-      0 20px;
+    width: min(100% - 40px, 1180px);
   }
+
 
   .features-grid {
-    grid-template-columns:
-      1fr;
+    grid-template-columns: 1fr;
+    gap: 18px;
   }
+
 
   .fcard {
-    height:
-      250px;
+    height: 250px;
   }
 
-  .section-head h2 {
-    font-size:
-      30px;
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .fcard-inner {
+    transition: none;
   }
 
 }
 
 </style>
-```

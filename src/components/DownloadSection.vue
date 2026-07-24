@@ -49,7 +49,7 @@ import loginScreenshot from '../assets/images/singin.jpeg'
 <style scoped>
 .wrap {
   max-width: 100%;
-  height: 80vh;
+  height: 88vh;
   background: var(--green-dark);
   margin: 0 auto;
   display: flex;
@@ -60,31 +60,36 @@ import loginScreenshot from '../assets/images/singin.jpeg'
 .wrap div{
   max-width: 1248px;
 }
+
 .download-cta {
   border-radius: 0px;
   color: white;
   display: grid;
-  grid-template-columns: 1fr 260px 260px;
+  grid-template-columns: 1fr 280px 280px;
   gap: 50px;
   align-items: center;
 }
+
 .download-cta h2 {
   font-size: 34px;
   font-weight: 800;
   line-height: 1.25;
   margin-bottom: 14px;
 }
+
 .download-cta p {
   font-size: 15.5px;
   color: rgba(255, 255, 255, 0.75);
   margin-bottom: 30px;
   max-width: 420px;
 }
+
 .store-badges {
   display: flex;
   gap: 14px;
   flex-wrap: wrap;
 }
+
 .store-btn {
   display: flex;
   align-items: center;
@@ -96,12 +101,14 @@ import loginScreenshot from '../assets/images/singin.jpeg'
   box-shadow: 0 10px 22px -10px rgba(0, 0, 0, 0.25);
   text-decoration: none;
 }
+
 .store-text .small {
   display: block;
   font-size: 9.5px;
   color: rgba(45, 90, 61, 0.6);
   font-weight: 500;
 }
+
 .store-text .big {
   display: block;
   font-size: 15px;
@@ -117,6 +124,7 @@ import loginScreenshot from '../assets/images/singin.jpeg'
   box-shadow: 0 40px 80px -25px rgba(0, 0, 0, 0.55);
   margin: 0 auto;
 }
+
 .device-notch {
   width: 80px;
   height: 16px;
@@ -124,11 +132,13 @@ import loginScreenshot from '../assets/images/singin.jpeg'
   border-radius: 0 0 12px 12px;
   margin: 0 auto 6px auto;
 }
+
 .device-screen {
   width: 100%;
   display: block;
   border-radius: 20px;
 }
+
 @media (max-width: 900px) {
   .download-cta {
     grid-template-columns: 1fr;
@@ -143,4 +153,5 @@ import loginScreenshot from '../assets/images/singin.jpeg'
     margin-right: auto;
   }
 }
+
 </style>

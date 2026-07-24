@@ -365,7 +365,7 @@ const profiles = [
 ========================================= */
 
 .profile-card {
-  height: 300px;
+  height: 390px;
 
   perspective: 1200px;
 
