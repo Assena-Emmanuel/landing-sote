@@ -1,4 +1,3 @@
-```vue
 <script setup>
 import {
   ref,
@@ -20,11 +19,11 @@ const props = defineProps({
 const emit = defineEmits(['navigate'])
 
 const pages = [
-  { id: 'accueil', label: 'Accueil' },
-  { id: 'profils', label: 'Profils' },
-  { id: 'fonctionnalites', label: 'Fonctionnalités' },
-  { id: 'pourquoi', label: 'Pourquoi Sotê' },
-  { id: 'conditions', label: 'Conditions & Confidentialité' },
+  { id: 'accueil', label: 'Accueil', path: '/' },
+  { id: 'profils', label: 'Profils', path: '/profils' },
+  { id: 'fonctionnalites', label: 'Fonctionnalités', path: '/fonctionnalites' },
+  { id: 'pourquoi', label: 'Pourquoi Sotê', path: '/pourquoi' },
+  { id: 'conditions', label: 'Conditions & Confidentialité', path: '/conditions' },
 ]
 
 const scrolled = ref(false)
@@ -78,9 +77,10 @@ function toggleMenu() {
       <!-- LOGO                              -->
       <!-- ================================= -->
 
-      <div
+      <a
+        href="/"
         class="logo-group"
-        @click="go('accueil')"
+        @click.prevent="go('accueil')"
       >
 
         <div class="logo-mark">
@@ -96,7 +96,7 @@ function toggleMenu() {
           Sotê
         </div>
 
-      </div>
+      </a>
 
 
       <!-- ================================= -->
@@ -108,11 +108,9 @@ function toggleMenu() {
         <a
           v-for="p in pages"
           :key="p.id"
-          href="#"
+          :href="p.path"
           class="nav-link"
-          :class="{
-            active: props.activePage === p.id
-          }"
+          :class="{ active: props.activePage === p.id }"
           @click.prevent="go(p.id)"
         >
           {{ p.label }}
@@ -126,7 +124,7 @@ function toggleMenu() {
       <!-- ================================= -->
 
       <a
-        href="#"
+        href="/telecharger"
         class="btn-solid"
         @click.prevent="go('telecharger')"
       >
@@ -170,11 +168,9 @@ function toggleMenu() {
         <a
           v-for="p in pages"
           :key="p.id"
-          href="#"
+          :href="p.path"
           class="mobile-link"
-          :class="{
-            active: props.activePage === p.id
-          }"
+          :class="{ active: props.activePage === p.id }"
           @click.prevent="go(p.id)"
         >
           {{ p.label }}
@@ -184,7 +180,7 @@ function toggleMenu() {
         <!-- Mobile Download Button -->
 
         <a
-          href="#"
+          href="/telecharger"
           class="mobile-btn"
           @click.prevent="go('telecharger')"
         >
@@ -276,6 +272,8 @@ nav.scrolled {
   cursor: pointer;
 
   flex-shrink: 0;
+
+  text-decoration: none;
 }
 
 
@@ -716,4 +714,3 @@ nav.scrolled {
 
 }
 </style>
-```
