@@ -2,21 +2,10 @@
 import {
   ref,
   onMounted,
-  onUnmounted,
-  defineProps,
-  defineEmits
+  onUnmounted
 } from 'vue'
 
 import logo from '@/assets/images/logo.png'
-
-const props = defineProps({
-  activePage: {
-    type: String,
-    required: true
-  }
-})
-
-const emit = defineEmits(['navigate'])
 
 const pages = [
   { id: 'accueil', label: 'Accueil', path: '/' },
@@ -48,16 +37,6 @@ onUnmounted(() => {
 
 
 /* =========================================
-   NAVIGATION
-========================================= */
-
-function go(id) {
-  menuOpen.value = false
-  emit('navigate', id)
-}
-
-
-/* =========================================
    MENU BURGER
 ========================================= */
 
@@ -77,10 +56,10 @@ function toggleMenu() {
       <!-- LOGO                              -->
       <!-- ================================= -->
 
-      <a
-        href="/"
+      <router-link
+        to="/"
         class="logo-group"
-        @click.prevent="go('accueil')"
+        @click="menuOpen = false"
       >
 
         <div class="logo-mark">
@@ -96,7 +75,7 @@ function toggleMenu() {
           Sotê
         </div>
 
-      </a>
+      </router-link>
 
 
       <!-- ================================= -->
@@ -105,16 +84,15 @@ function toggleMenu() {
 
       <div class="nav-links">
 
-        <a
+        <router-link
           v-for="p in pages"
           :key="p.id"
-          :href="p.path"
+          :to="p.path"
           class="nav-link"
-          :class="{ active: props.activePage === p.id }"
-          @click.prevent="go(p.id)"
+          active-class="active"
         >
           {{ p.label }}
-        </a>
+        </router-link>
 
       </div>
 
@@ -123,13 +101,12 @@ function toggleMenu() {
       <!-- DESKTOP DOWNLOAD BUTTON           -->
       <!-- ================================= -->
 
-      <a
-        href="/telecharger"
+      <router-link
+        to="/telecharger"
         class="btn-solid"
-        @click.prevent="go('telecharger')"
       >
         Télécharger l'app
-      </a>
+      </router-link>
 
 
       <!-- ================================= -->
@@ -165,27 +142,27 @@ function toggleMenu() {
         class="mobile-menu"
       >
 
-        <a
+        <router-link
           v-for="p in pages"
           :key="p.id"
-          :href="p.path"
+          :to="p.path"
           class="mobile-link"
-          :class="{ active: props.activePage === p.id }"
-          @click.prevent="go(p.id)"
+          active-class="active"
+          @click="menuOpen = false"
         >
           {{ p.label }}
-        </a>
+        </router-link>
 
 
         <!-- Mobile Download Button -->
 
-        <a
-          href="/telecharger"
+        <router-link
+          to="/telecharger"
           class="mobile-btn"
-          @click.prevent="go('telecharger')"
+          @click="menuOpen = false"
         >
           Télécharger l'app
-        </a>
+        </router-link>
 
       </div>
 

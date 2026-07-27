@@ -463,9 +463,9 @@ import loginScreenshot from '../assets/images/singin.jpeg'
 ========================================= */
 
 .device-notch {
-  width: 80px;
+  width: 100px;
 
-  height: 16px;
+  height: 18px;
 
   margin:
     0
