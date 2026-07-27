@@ -482,6 +482,7 @@ onUnmounted(() => {
 
   .badge-wrapper {
     padding: 20px 0 0;
+    margin-bottom: 20px;
   }
 
   .stats-strip {
