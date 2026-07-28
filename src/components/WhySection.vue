@@ -1,22 +1,28 @@
 ```vue
 <script setup>
+
 const reasons = [
   {
-    title: "Simple d'utilisation",
-    desc: "Une interface claire, pensée pour être prise en main en quelques minutes, sans formation nécessaire.",
+    title: "Simple et intuitif",
+    desc: "Une expérience pensée pour simplifier la gestion immobilière, automatiser les tâches essentielles et permettre à chacun d'être opérationnel en quelques minutes.",
     path: '<path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z"/>',
   },
   {
-    title: "Adapté au marché africain",
-    desc: "Pensé pour les réalités locales de la gestion immobilière en Côte d'Ivoire et à travers l'Afrique.",
+    title: "Une vision sans frontières",
+    desc: "Une solution conçue pour s'adapter à la diversité des marchés, des usages et des réalités immobilières, où que vous soyez.",
     path: '<path d="M12 2l9 4.5v6c0 5-3.8 8.7-9 9.5-5.2-.8-9-4.5-9-9.5v-6L12 2z"/>',
   },
   {
-    title: "Tout-en-un",
-    desc: "Propriétaires, locataires et artisans réunis sur une seule plateforme, pour une gestion sans friction.",
+    title: "Un écosystème unifié",
+    desc: "Propriétaires, locataires, gestionnaires et prestataires réunis dans un même environnement pour connecter les acteurs, fluidifier les échanges et transformer chaque interaction.",
     path: '<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h8M8 15h5"/>',
   },
 ]
+
+
+
+
+
 </script>
 
 
