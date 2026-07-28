@@ -1,11 +1,9 @@
 <script setup>
 import { computed } from 'vue'
+import ci from '../assets/images/pays/ci.png'
 
 const countries = [
-  { flag: '🇨🇮', name: "Côte d'Ivoire" },
-  // { flag: '🇸🇳', name: 'Sénégal' },
-  // { flag: '🇨🇲', name: 'Cameroun' },
-  // ... (Décommentez les autres pour tester le mode défilant)
+  { flag: ci,name: "Côte d'Ivoire" },
 ]
 
 // Condition : On active le défilement uniquement à partir de 10 pays
@@ -41,7 +39,9 @@ const displayList = computed(() => {
           :key="shouldMarquee ? `m-${index}` : `s-${c.name}`" 
           class="country-item"
         >
-          <div class="country-flag">{{ c.flag }}</div>
+          <div class="country-flag">
+            <img :src="c.flag" :alt="`Drapeau de ${c.name}`" srcset="">
+          </div>
           <div class="country-name">{{ c.name }}</div>
         </div>
       </div>
@@ -175,6 +175,14 @@ const displayList = computed(() => {
   font-size: 20px;
   box-shadow: 0 4px 10px rgba(45, 90, 61, 0.1);
   border: 1px solid rgba(228, 241, 232, 0.5);
+}
+
+.country-flag img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
 }
 
 .country-name {
