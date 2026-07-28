@@ -80,12 +80,12 @@ onUnmounted(() => {
           faites appel à des artisans de confiance — tout dans une seule application.
         </p>
         <div class="store-badges">
-          <a href="#" class="store-btn">
+          <!-- <a href="#" class="store-btn">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
               <path d="M16.365 1.43c0 1.14-.462 2.14-1.152 2.87-.744.8-1.94 1.42-2.98 1.34-.126-1.1.44-2.24 1.14-2.95.76-.78 2.04-1.36 2.99-1.26zm4.28 16.6c-.34.79-.5 1.14-.94 1.85-.62 1-1.5 2.24-2.59 2.25-.97.01-1.22-.63-2.53-.62-1.31.01-1.59.63-2.56.62-1.09-.01-1.92-1.13-2.54-2.13-1.74-2.79-1.92-6.06-.85-7.8.76-1.24 1.96-1.97 3.09-1.97 1.15 0 1.87.63 2.82.63.92 0 1.48-.63 2.81-.63 1.01 0 2.08.55 2.84 1.5-2.5 1.37-2.09 4.93.45 5.9z"/>
             </svg>
             <span class="store-text"><span class="small">Télécharger sur l'</span><span class="big">App Store</span></span>
-          </a>
+          </a> -->
           <a href="#" class="store-btn">
             <svg width="20" height="20" viewBox="0 0 24 24">
               <path fill="#00D9FF" d="M4 2.5v19l10-9.5z" />

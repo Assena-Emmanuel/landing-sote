@@ -43,7 +43,7 @@ import loginScreenshot from '../assets/images/singin.jpeg'
 
             <!-- APP STORE -->
 
-            <a
+            <!-- <a
               href="#"
               class="store-btn"
             >
@@ -70,7 +70,7 @@ import loginScreenshot from '../assets/images/singin.jpeg'
                 </span>
               </span>
 
-            </a>
+            </a> -->
 
 
             <!-- GOOGLE PLAY -->
