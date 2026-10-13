@@ -31,7 +31,8 @@ import loginScreenshot from '../assets/images/singin.jpeg'
           <p>
             Disponible gratuitement sur Android (version 1.0.0).
             Rejoignez les propriétaires, locataires et artisans
-            qui utilisent déjà Sotê.
+            qui utilisent déjà Sotê pour gérer leurs biens et
+            publier leurs annonces.
           </p>
 
 

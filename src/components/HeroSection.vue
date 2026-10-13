@@ -76,7 +76,7 @@ onUnmounted(() => {
           depuis votre téléphone.
         </h1>
         <p class="lead">
-          Simple, fiable, pensé pour le marché africain. Suivez vos loyers, centralisez vos biens et
+          Simple, fiable, pensé pour le marché africain. Suivez vos loyers, publiez vos annonces, centralisez vos biens et
           faites appel à des artisans de confiance — tout dans une seule application.
         </p>
         <div class="store-badges">

@@ -10,7 +10,7 @@ const activeTab = ref("cgu");
       <div class="section-head" style="margin-bottom: 30px">
         <div class="kicker">Informations légales</div>
         <h2>Conditions & Confidentialité</h2>
-        <p>Dernière mise à jour : 22 juillet 2026</p>
+        <p>Dernière mise à jour : 13 octobre 2026</p>
       </div>
 
       <div class="tabs">
@@ -37,8 +37,9 @@ const activeTab = ref("cgu");
           <p>
             Les présentes Conditions Générales d'Utilisation (CGU) encadrent
             l'accès et l'utilisation de l'application mobile Sotê, éditée pour
-            la gestion de biens immobiliers, le suivi des loyers et la mise en
-            relation avec des prestataires de services. En créant un compte,
+            la gestion de biens immobiliers, le suivi des loyers, la publication
+            d'annonces immobilières et la mise en relation avec des prestataires
+            de services. En créant un compte,
             l'utilisateur accepte sans réserve l'ensemble des présentes
             conditions.
           </p>
@@ -54,8 +55,11 @@ const activeTab = ref("cgu");
           <h3>3. Utilisation du service</h3>
           <p>
             L'utilisateur s'engage à utiliser Sotê conformément à sa destination
-            : gestion de biens, suivi de paiements de loyers, et mise en
-            relation avec des prestataires. Toute utilisation frauduleuse,
+            : gestion de biens, suivi de paiements de loyers, publication et
+            consultation d'annonces, et mise en relation avec des prestataires.
+            L'utilisateur qui publie une annonce garantit l'exactitude des
+            informations qu'elle contient et en reste seul responsable. Toute
+            annonce trompeuse ou illicite pourra être retirée. Toute utilisation frauduleuse,
             abusive ou contraire aux lois en vigueur en Côte d'Ivoire et dans
             les pays où le service est disponible pourra entraîner la suspension
             du compte.
@@ -104,13 +108,18 @@ const activeTab = ref("cgu");
             gestion du compte : nom, prénoms, numéro de téléphone, adresse des
             biens, historique des paiements, et selon le profil, les
             informations relatives aux services proposés par les artisans.
+            Lorsqu'un utilisateur publie une annonce, Sotê collecte également
+            son contenu : description du bien, photos, loyer demandé,
+            localisation et coordonnées de contact que l'annonceur choisit d'y
+            faire figurer.
           </p>
 
           <h3>2. Utilisation des données</h3>
           <p>
             Les données sont utilisées pour assurer le fonctionnement du service
-            : suivi des loyers, mise en relation entre propriétaires, locataires
-            et prestataires, envoi de notifications, et amélioration continue de
+            : suivi des loyers, publication et consultation des annonces
+            immobilières, mise en relation entre propriétaires, locataires et
+            prestataires, envoi de notifications, et amélioration continue de
             l'application.
           </p>
 
@@ -119,7 +128,10 @@ const activeTab = ref("cgu");
             Les données personnelles ne sont partagées avec des tiers qu'avec le
             consentement explicite de l'utilisateur, ou lorsque la loi l'exige.
             Les informations de paiement sont traitées de manière chiffrée et ne
-            sont jamais revendues à des fins commerciales.
+            sont jamais revendues à des fins commerciales. Les annonces
+            publiées sont, par nature, visibles des autres utilisateurs de
+            l'application : les informations que l'annonceur y fait figurer
+            sont donc accessibles à toute personne qui les consulte.
           </p>
 
           <h3>4. Sécurité</h3>
@@ -133,7 +145,8 @@ const activeTab = ref("cgu");
           <p>
             Chaque utilisateur peut demander l'accès, la rectification ou la
             suppression de ses données personnelles à tout moment, en contactant
-            le support depuis l'application.
+            le support depuis l'application. Une annonce peut être modifiée ou
+            retirée à tout moment par l'utilisateur qui l'a publiée.
           </p>
 
           <h3>6. Conservation des données</h3>

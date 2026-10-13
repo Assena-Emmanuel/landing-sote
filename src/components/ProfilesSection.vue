@@ -4,14 +4,14 @@ const profiles = [
     id: 1,
     title: 'Propriétaire',
     description:
-      'Gérez vos biens et vos loyers, suivez les paiements en temps réel et gardez un historique complet de chaque location.',
+      'Publiez vos annonces, gérez vos biens et vos loyers, suivez les paiements en temps réel et gardez un historique complet de chaque location.',
     icon: 'home',
   },
   {
     id: 2,
     title: 'Locataire',
     description:
-      'Payez votre loyer en quelques secondes, suivez votre logement et recevez automatiquement vos quittances.',
+      'Trouvez votre logement parmi les annonces, payez votre loyer en quelques secondes et recevez automatiquement vos quittances.',
     icon: 'user',
   },
   {

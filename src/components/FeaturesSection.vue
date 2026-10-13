@@ -2,8 +2,13 @@
 const features = [
   {
     title: 'Suivi des loyers et paiements',
-    desc: "Visualisez les loyers reçus, en attente ou impayés, mois par mois, en un coup d'œil.",
+    desc: "Visualisez les loyers reçus, en attente ou impayés, et retrouvez l'historique de vos paiements et quittances à tout moment.",
     icon: 'payment',
+  },
+  {
+    title: 'Annonces immobilières',
+    desc: 'Publiez vos biens disponibles en quelques minutes et parcourez les annonces pour trouver le logement qui vous convient.',
+    icon: 'listing',
   },
   {
     title: 'Gestion des biens et locataires',
@@ -14,11 +19,6 @@ const features = [
     title: 'Tableau de bord en temps réel',
     desc: "Une vue d'ensemble claire de vos revenus, vos biens et vos locataires, mise à jour instantanément.",
     icon: 'dashboard',
-  },
-  {
-    title: 'Transactions et historique',
-    desc: 'Retrouvez tous vos paiements passés et vos quittances archivées à tout moment.',
-    icon: 'history',
   },
   {
     title: 'Mise en relation avec des artisans',
@@ -78,10 +78,10 @@ const features = [
               <rect x="14" y="14" width="7" height="7" rx="1.5" />
             </svg>
 
-            <!-- History -->
-            <svg v-else-if="feature.icon === 'history'" viewBox="0 0 24 24">
-              <circle cx="12" cy="12" r="9" />
-              <path d="M12 7v5l3 3" />
+            <!-- Listing -->
+            <svg v-else-if="feature.icon === 'listing'" viewBox="0 0 24 24">
+              <path d="M3 11v2a1 1 0 001 1h2l5 4V6L6 10H4a1 1 0 00-1 1z" />
+              <path d="M15.5 8.5a5 5 0 010 7" />
             </svg>
 
             <!-- Tools -->

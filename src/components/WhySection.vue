@@ -14,7 +14,7 @@ const reasons = [
   },
   {
     title: "Un écosystème unifié",
-    desc: "Propriétaires, locataires, gestionnaires et prestataires réunis dans un même environnement pour connecter les acteurs, fluidifier les échanges et transformer chaque interaction.",
+    desc: "Propriétaires, locataires, gestionnaires et prestataires réunis dans un même environnement pour publier et consulter des annonces, connecter les acteurs, fluidifier les échanges et transformer chaque interaction.",
     path: '<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h8M8 15h5"/>',
   },
 ]
