@@ -29,7 +29,7 @@ import loginScreenshot from '../assets/images/singin.jpeg'
           </h2>
 
           <p>
-            Disponible gratuitement sur iOS et Android.
+            Disponible gratuitement sur Android (version 1.0.0).
             Rejoignez les propriétaires, locataires et artisans
             qui utilisent déjà Sotê.
           </p>
@@ -73,10 +73,11 @@ import loginScreenshot from '../assets/images/singin.jpeg'
             </a> -->
 
 
-            <!-- GOOGLE PLAY -->
+            <!-- ANDROID -->
 
             <a
-              href="#"
+              href="/downloads/sote-v1.0.0.apk"
+              download
               class="store-btn"
             >
 
@@ -87,33 +88,18 @@ import loginScreenshot from '../assets/images/singin.jpeg'
                 aria-hidden="true"
               >
                 <path
-                  fill="#00D9FF"
-                  d="M4 2.5v19l10-9.5z"
-                />
-
-                <path
-                  fill="#00F076"
-                  d="M4 2.5l13 6.5-3 3z"
-                />
-
-                <path
-                  fill="#FF3A44"
-                  d="M4 21.5l13-6.5-3-3z"
-                />
-
-                <path
-                  fill="#FFCF00"
-                  d="M14 12l3-3 3.5 1.75c1 .5 1 1.75 0 2.25L17 15z"
+                  fill="#3DDC84"
+                  d="M17.6 9.48l1.84-3.18c.16-.31.04-.69-.26-.85-.29-.15-.65-.06-.83.22l-1.88 3.24a11.463 11.463 0 00-8.94 0L5.65 5.67c-.19-.29-.58-.38-.87-.2-.28.18-.37.54-.22.83L6.4 9.48A10.78 10.78 0 001 18h22a10.78 10.78 0 00-5.4-8.52zM7 15.25a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zm10 0a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5z"
                 />
               </svg>
 
               <span class="store-text">
                 <span class="small">
-                  Disponible sur
+                  Télécharger l'APK
                 </span>
 
                 <span class="big">
-                  Google Play
+                  Android V1.0.0
                 </span>
               </span>
 
