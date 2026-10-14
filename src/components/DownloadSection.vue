@@ -108,6 +108,27 @@ import loginScreenshot from '../assets/images/singin.jpeg'
 
           </div>
 
+
+          <!-- =============================== -->
+          <!-- INSTALL GUIDE                    -->
+          <!-- =============================== -->
+
+          <div class="install-guide">
+
+            <h3>Comment installer :</h3>
+
+            <ol>
+              <li>Touchez « Télécharger l'APK » ci-dessus.</li>
+              <li>Ouvrez le fichier téléchargé (<em>sote-v1.0.0.apk</em>).</li>
+              <li>
+                Si Android le demande, autorisez « Installer des applications
+                inconnues » pour votre navigateur, puis validez.
+              </li>
+              <li>Ouvrez Sotê et connectez-vous ou créez votre compte.</li>
+            </ol>
+
+          </div>
+
         </div>
 
 
@@ -378,6 +399,48 @@ import loginScreenshot from '../assets/images/singin.jpeg'
   font-family:
     'Sora',
     sans-serif;
+}
+
+
+/* =========================================
+   INSTALL GUIDE
+========================================= */
+
+.install-guide {
+  max-width: 480px;
+  margin-top: 26px;
+  padding: 20px 22px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(8px);
+}
+
+.install-guide h3 {
+  margin: 0 0 10px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.install-guide ol {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.install-guide li {
+  margin-bottom: 6px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.install-guide li:last-child {
+  margin-bottom: 0;
+}
+
+.install-guide em {
+  color: var(--white);
 }
 
 
