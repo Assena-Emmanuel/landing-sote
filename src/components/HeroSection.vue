@@ -93,6 +93,18 @@ onUnmounted(() => {
             <span class="store-text"><span class="small">Télécharger l'APK</span><span class="big">Android V1.0.0</span></span>
           </a>
         </div>
+        <div class="install-guide">
+          <h3>Comment installer :</h3>
+          <ol>
+            <li>Touchez « Télécharger l'APK » ci-dessus.</li>
+            <li>Ouvrez le fichier téléchargé (<em>sote-v1.0.0.apk</em>).</li>
+            <li>
+              Si Android le demande, autorisez « Installer des applications
+              inconnues » pour votre navigateur, puis validez.
+            </li>
+            <li>Ouvrez Sotê et connectez-vous ou créez votre compte.</li>
+          </ol>
+        </div>
       </div>
 
       <!-- RIGHT VISUAL -->
@@ -412,7 +424,52 @@ onUnmounted(() => {
 /* =========================================
    RESPONSIVE - TABLET
 ========================================= */
+/* Guide d'installation (même contenu que la section Télécharger, en
+   version claire pour le fond du hero) */
+.install-guide {
+  max-width: 480px;
+  margin-top: 24px;
+  padding: 18px 22px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(8px);
+  text-align: left;
+}
+
+.install-guide h3 {
+  margin: 0 0 8px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--green-dark);
+}
+
+.install-guide ol {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.install-guide li {
+  margin-bottom: 4px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+.install-guide li:last-child {
+  margin-bottom: 0;
+}
+
+.install-guide em {
+  color: var(--green-dark);
+}
+
 @media (max-width: 940px) {
+  .install-guide {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .hero-inner {
     grid-template-columns: 1fr;
     text-align: center;
